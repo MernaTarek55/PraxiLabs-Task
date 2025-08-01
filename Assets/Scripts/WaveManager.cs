@@ -65,7 +65,7 @@ public class WaveManager : MonoBehaviour , IWaveControl
         {
             pool.ReturnToPool(enemy);
             enemiesAlive--;
-            if (enemiesAlive <= 0 && !btnClicked)
+            if (enemiesAlive <= 0 && !btnClicked && isRunning)
                 StartCoroutine(NextWaveDelay());
         };
     }
