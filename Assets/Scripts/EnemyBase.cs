@@ -6,13 +6,11 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
 
     protected Renderer[] renderers;
     protected MaterialPropertyBlock propertyBlock;
-    protected EnemyBehaviorBase behavior;
     public ObjectPool<EnemyBase> PoolReference { get; set; }
     public virtual void Initialize()
     {
         renderers = GetComponentsInChildren<Renderer>();
         propertyBlock = new MaterialPropertyBlock();
-        behavior?.Activate();
     }
 
     public virtual void OnClick()
@@ -32,15 +30,10 @@ public abstract class EnemyBase : MonoBehaviour, IEnemy
 
     public virtual void ResetEnemy()
     {
-        behavior?.ResetBehavior();
         //if (PoolReference != null)
         //    PoolReference.ReturnToPool(this);
         //else
         gameObject.SetActive(false);
     }
 
-    public void SetBehavior(EnemyBehaviorBase newBehavior)
-    {
-        behavior = newBehavior;
-    }
 }

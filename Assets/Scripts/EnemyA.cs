@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class EnemyA : EnemyBase
 {
-    public EnemyBehaviorBase defaultBehavior;
     private EnemyStateMachine stateMachine;
     [SerializeField] private Animator animator;
     [SerializeField] private float moveSpeed = 3f;
@@ -23,7 +22,7 @@ public class EnemyA : EnemyBase
 
     protected override void Die()
     {
-        // play effect, sound  
+
         base.Die();
     }
 }

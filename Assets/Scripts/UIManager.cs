@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        waveControl = FindObjectOfType<WaveManager>();
+        waveControl = FindFirstObjectByType<WaveManager>();
 
         stopResumeButton.onClick.AddListener(OnStopResumeClicked);
         nextWaveButton.onClick.AddListener(() => waveControl.ForceNextWave());

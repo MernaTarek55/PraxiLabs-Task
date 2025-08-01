@@ -78,6 +78,7 @@ public class WaveManager : MonoBehaviour , IWaveControl
 
     private IEnumerator NextWaveDelay()
     {
+        
         yield return new WaitForSeconds(waveDelay);
         currentWave++;
         StartCoroutine(SpawnWave());
@@ -97,6 +98,7 @@ public class WaveManager : MonoBehaviour , IWaveControl
 
     public void ForceNextWave()
     {
+        if (!isRunning) return;
         StopAllCoroutines();
         currentWave++;
         StartCoroutine(SpawnWave());
@@ -107,7 +109,7 @@ public class WaveManager : MonoBehaviour , IWaveControl
     {
         btnClicked = true;
 
-        foreach (var enemy in FindObjectsOfType<EnemyBase>())
+        foreach (var enemy in Object.FindObjectsByType<EnemyBase>(FindObjectsSortMode.None))
         {
             enemy.OnClick();
         }

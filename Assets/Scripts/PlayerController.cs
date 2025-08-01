@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 5f;
-    public float lookSpeed = 2f;
+    public float lookSpeed = 3f;
 
     private CharacterController controller;
     private Camera cam;
@@ -20,10 +20,10 @@ public class PlayerController : MonoBehaviour
     {
         // Look
         float mouseX = Input.GetAxis("Mouse X") * lookSpeed;
-        float mouseY = Input.GetAxis("Mouse Y") * lookSpeed;
+        //float mouseY = Input.GetAxis("Mouse Y") * lookSpeed;
 
         transform.Rotate(0f, mouseX, 0f);
-        rotationX -= mouseY;
+        //rotationX -= mouseY;
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);
         cam.transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
 

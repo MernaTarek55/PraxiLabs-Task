@@ -38,7 +38,6 @@ public class AttackState : IEnemyState
         {
             animator?.SetTrigger("Attack");
             lastAttackTime = Time.time;
-            // Damage player here (call IDamageable?)
         }
     }
 

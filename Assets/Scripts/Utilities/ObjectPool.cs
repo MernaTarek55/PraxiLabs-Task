@@ -24,9 +24,6 @@ namespace Utilities
         }
         public T Get()
         {
-            Debug.Log("TotalCount is "+ TotalCount);
-            Debug.Log(" activeObjects.Count is " + activeObjects.Count);
-            Debug.Log("pool.Count is " + pool.Count);
             T obj;
 
             if (pool.Count > 0)
@@ -48,7 +45,6 @@ namespace Utilities
             obj.gameObject.SetActive(false);
             activeObjects.Remove(obj);
             pool.Enqueue(obj);
-            Debug.Log("Returned object to pool is " + pool.Count);
         }
 
         public int TotalCount => pool.Count + activeObjects.Count;
